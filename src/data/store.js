@@ -6,8 +6,6 @@ export const store = reactive({
 
     pagination: {
 
-        prev: null,
-        next: null,
         links: null,
 
     },

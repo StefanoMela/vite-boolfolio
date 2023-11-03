@@ -17,8 +17,6 @@ export default {
     fetchProjects(uri = store.baseUrl + "projects") {
       axios.get(uri).then((response) => {
         store.projects = response.data.data;
-        store.pagination.prev = response.data.prev_page_url;
-        store.pagination.next = response.data.next_page_url;
         store.pagination.links = response.data.links;
       });
     },
@@ -36,8 +34,18 @@ export default {
     <div class="row row-cols-3 g-4">
       <ProjectCard v-for="project in store.projects" :project="project" />
     </div>
-    <div @click="fetchProjects(store.pagination.prev)">Prev Page</div>
-    <div @click="fetchProjects(store.pagination.next)">Next Page</div>
+
+    <nav class="my-3" aria-label="Page navigation example">
+      <ul class="pagination">
+        <li
+          v-for="link in store.pagination.links"
+          @click="fetchProjects(link.url)"
+          class="page-item"
+        >
+          <a class="page-link" href="#" v-html="link.label"></a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
