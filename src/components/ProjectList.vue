@@ -1,11 +1,28 @@
 <script>
+import axios from 'axios';
+import {store} from '../data/store.js'
+
+import ProjectCard from "./ProjectCard.vue";
+
 export default {
   data() {
-    return {};
+    return {
+      store,
+    };
   },
 
-  props: {
-    projects: Array,
+  components: { ProjectCard },
+
+  methods: {
+    fetchProjects() {
+      axios.get(this.store.baseUrl + "projects").then((response) => {
+        store.projects = response.data.data;
+      });
+    },
+  },
+
+  created() {
+    this.fetchProjects();
   },
 };
 </script>
@@ -14,18 +31,7 @@ export default {
   <div class="container mb-4 text-center">
     <h1 class="mb-4">Projects List</h1>
     <div class="row row-cols-3 g-4">
-      <div class="col" v-for="project in projects">
-        <div class="card h-100">
-          <div class="card-header">
-            <h4 class="card-title">{{ project.title }}</h4>
-          </div>
-          <div class="card-body">
-            <p class="card-text">
-              {{ project.description }}
-            </p>
-          </div>
-        </div>
-      </div>
+      <ProjectCard v-for="project in store.projects" :project="project" />
     </div>
   </div>
 </template>
