@@ -37,10 +37,10 @@ created() {
 </script>
 
 <template>
-  <seciont class="container my-5 text-center">
+  <div class="container text-center">
     <h1>Project List</h1>
-    <ProjectList v-for="project in store.projects" :project="project" />
-  </seciont>
+    <ProjectList :projects="this.store.projects" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
