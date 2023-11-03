@@ -16,14 +16,15 @@ export default {
     <div class="col">
         <div class="card h-100">
           <div class="card-header">
-            <!-- <span class="badge" :style="{backgroundColor: project.type.color}">{{ project.type.label }}</span>  -->
+            <span class="badge" v-if="project.type" :style="{backgroundColor: project.type.color}">{{ project.type.label }}</span>
             <h4 class="card-title">{{ project.title }}</h4>
-            <!-- <span 
+            <span 
             v-for="technology in project.technologies"
-            :style="{backgroundColor: project.technology.color}"
-            class="badge rounded-pill">
-            {{ project.technology.label }}
-        </span> -->
+            v-if="project.technologies"
+            :style="{backgroundColor: technology.color}"
+            class="badge rounded-pill mx-1">
+            {{ technology.label }}
+        </span>
         </div>
         <div class="card-body">
             <p class="card-text">

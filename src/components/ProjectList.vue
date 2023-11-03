@@ -1,6 +1,6 @@
 <script>
-import axios from 'axios';
-import {store} from '../data/store.js'
+import axios from "axios";
+import { store } from "../data/store.js";
 
 import ProjectCard from "./ProjectCard.vue";
 
@@ -14,9 +14,12 @@ export default {
   components: { ProjectCard },
 
   methods: {
-    fetchProjects() {
-      axios.get(this.store.baseUrl + "projects").then((response) => {
+    fetchProjects(uri = store.baseUrl + "projects") {
+      axios.get(uri).then((response) => {
         store.projects = response.data.data;
+        store.pagination.prev = response.data.prev_page_url;
+        store.pagination.next = response.data.next_page_url;
+        store.pagination.links = response.data.links;
       });
     },
   },
@@ -33,6 +36,8 @@ export default {
     <div class="row row-cols-3 g-4">
       <ProjectCard v-for="project in store.projects" :project="project" />
     </div>
+    <div @click="fetchProjects(store.pagination.prev)">Prev Page</div>
+    <div @click="fetchProjects(store.pagination.next)">Next Page</div>
   </div>
 </template>
 
