@@ -37,10 +37,7 @@ created() {
 </script>
 
 <template>
-  <div class="container text-center">
-    <h1>Project List</h1>
     <ProjectList :projects="this.store.projects" />
-  </div>
 </template>
 
 <style lang="scss" scoped>
