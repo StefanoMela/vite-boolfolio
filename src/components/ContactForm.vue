@@ -1,10 +1,35 @@
 <script>
+import axios from 'axios';
+import {store} from '../data/store';
+
 export default {
   data() {
     return {
-      title: "Hello world",
+      formField: {
+        email: '',
+        name: '',
+        message: '',
+      }
     };
   },
+
+  methods: {
+
+    sendMessage() {
+      if(!this.formField.email || !this.formField.name || !this.formField.message)
+
+      return;
+
+      const data = {
+
+        email: this.formField.email,
+        name: this.formField.name,
+        message: this.formField.message,
+
+      }
+
+    }
+  }
 };
 </script>
 
