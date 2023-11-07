@@ -29,13 +29,12 @@ export default {
 </script>
 
 <template>
-  <div class="container mb-4 text-center">
-    <h1 class="mb-4">Projects List</h1>
+    <h1 class="my-4">Projects List</h1>
     <div class="row row-cols-3 g-4">
       <ProjectCard v-for="project in store.projects" :project="project" />
     </div>
 
-    <nav class="my-3" aria-label="Page navigation example">
+    <nav class="my-4" aria-label="Page navigation example">
       <ul class="pagination">
         <li
           v-for="link in store.pagination.links"
@@ -46,7 +45,6 @@ export default {
         </li>
       </ul>
     </nav>
-  </div>
 </template>
 
 <style lang="scss" scoped></style>
