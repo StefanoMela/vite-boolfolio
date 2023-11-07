@@ -45,7 +45,7 @@ export default {
               class="btn btn-primary w-50 align-self-center my-4"
               :to="{name: 'project-detail',
               params: {
-                id: project.id
+                slug: project.slug
             }}"
               > Vedi dettagli
               </RouterLink>

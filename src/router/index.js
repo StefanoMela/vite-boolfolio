@@ -21,7 +21,7 @@ const router = createRouter({
             component: PortfolioPage,
         },
         {
-            path: '/portfolio/:id/',
+            path: '/portfolio/:slug/',
             name: 'project-detail',
             component: ProjectPage,
         },
