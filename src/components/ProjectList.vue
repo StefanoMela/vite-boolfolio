@@ -31,7 +31,9 @@ export default {
 <template>
     <h1 class="my-4">Projects List</h1>
     <div class="row row-cols-3 g-4">
-      <ProjectCard v-for="project in store.projects" :project="project" />
+      <ProjectCard 
+      v-for="project in store.projects" :project="project"
+      :isDetail="false" />
     </div>
 
     <nav class="my-4" aria-label="Page navigation example">

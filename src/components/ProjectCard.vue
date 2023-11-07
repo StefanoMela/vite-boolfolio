@@ -8,6 +8,7 @@ export default {
   },
   props: {
     project: Object,
+    isDetail: Boolean,
   },
   components: { RouterLink },
 };
@@ -38,14 +39,17 @@ export default {
           {{ project.description }}
         </p>
       </div>
-      <RouterLink 
-            class="btn btn-primary w-50 align-self-center my-4"
-            :to="{name: 'project-detail',
-            params: {
-              id: project.id
-          }}"
-            > Vedi dettagli
-            </RouterLink>
+      <div class="card-footer"
+      v-if="!isDetail">
+        <RouterLink 
+              class="btn btn-primary w-50 align-self-center my-4"
+              :to="{name: 'project-detail',
+              params: {
+                id: project.id
+            }}"
+              > Vedi dettagli
+              </RouterLink>
+      </div>
     </div>
   </div>
 </template>

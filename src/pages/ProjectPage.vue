@@ -7,22 +7,27 @@ export default {
   data(){
     return{
       store,
+      project: {},
     }
 
   },
   components: { ProjectCard },
 
   created(){
-
-    console.log(store.baseUrl + 'projects/' + this.$route.params.id);
     axios.get(store.baseUrl + 'projects/' + this.$route.params.id )
+    .then((response)=>{
+      this.project = response.data;
+    })
   },
 };
 </script>
 
 <template>
   <h1>Dettaglio Progetto</h1>
-  <!-- <ProjectCard /> -->
+  <ProjectCard 
+  :project="project"
+  :isDetail="true"
+  v-if="project" />
 </template>
 
 <style lang="scss" scoped></style>
