@@ -3,7 +3,8 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import HomePage from '../pages/HomePage.vue';
 import PortfolioPage from '../pages/PortfolioPage.vue';
-import ProjectCard from '../components/ProjectCard.vue';
+import ContactPage from '../pages/ContactPage.vue';
+import ProjectPage from '../pages/ProjectPage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,9 +21,14 @@ const router = createRouter({
             component: PortfolioPage,
         },
         {
-            path: '/portfolio/ :slug/',
+            path: '/portfolio/:id/',
             name: 'project-detail',
-            component: ProjectCard,
+            component: ProjectPage,
+        },
+        {
+            path: '/contacts',
+            name: 'contacts',
+            component: ContactPage,
         },
     ]
 });

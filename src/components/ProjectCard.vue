@@ -1,38 +1,53 @@
 <script>
+import axios from "axios";
+import { RouterLink } from "vue-router";
+
 export default {
   data() {
-    return {
-    }
+    return {};
   },
-
   props: {
-
     project: Object,
-  }
+  },
+  components: { RouterLink },
 };
 </script>
 
 <template>
-    <div class="col">
-        <div class="card h-100">
-          <div class="card-header">
-            <span class="badge" v-if="project.type" :style="{backgroundColor: project.type.color}">{{ project.type.label }}</span>
-            <h4 class="card-title">{{ project.title }}</h4>
-            <span 
-            v-for="technology in project.technologies"
-            v-if="project.technologies"
-            :style="{backgroundColor: technology.color}"
-            class="badge rounded-pill mx-1">
-            {{ technology.label }}
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-header">
+        <span
+          class="badge"
+          v-if="project.type"
+          :style="{ backgroundColor: project.type.color }"
+          >{{ project.type.label }}</span
+        >
+        <h4 class="card-title">{{ project.title }}</h4>
+        <span
+          v-for="technology in project.technologies"
+          v-if="project.technologies"
+          :style="{ backgroundColor: technology.color }"
+          class="badge rounded-pill mx-1"
+        >
+          {{ technology.label }}
         </span>
-        </div>
-        <div class="card-body">
-            <p class="card-text">
-              {{ project.description }}
-            </p>
-          </div>
-        </div>
       </div>
+      <div class="card-body">
+        <p class="card-text">
+          {{ project.description }}
+        </p>
+      </div>
+      <RouterLink 
+            class="btn btn-primary w-50 align-self-center my-4"
+            :to="{name: 'project-detail',
+            params: {
+              id: project.id
+          }}"
+            > Vedi dettagli
+            </RouterLink>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

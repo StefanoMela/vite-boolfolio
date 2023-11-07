@@ -25,6 +25,13 @@ export default {};
             > Portfolio
             </RouterLink>
           </li>
+          <li class="nav-item">
+            <RouterLink 
+            class="nav-link"
+            :to="{name: 'contacts'}"
+            > Contatti
+            </RouterLink>
+          </li>
         </ul>
       </div>
     </div>

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar.vue'
 
 export default {
 
-components: { RouterView, Navbar },
+components: { Navbar, RouterView },
 };
 
 
@@ -12,7 +12,7 @@ components: { RouterView, Navbar },
 
 <template>
     <Navbar />
-    <div class="container mb-4 text-center">
+    <div class="container mb-4">
         <RouterView />
     </div>
 </template>
