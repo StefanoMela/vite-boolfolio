@@ -42,7 +42,7 @@ export default {
       <div class="card-footer"
       v-if="!isDetail">
         <RouterLink 
-              class="btn btn-primary w-50 align-self-center my-4"
+              class="btn btn-primary w-50 align-self-center my-2"
               :to="{name: 'project-detail',
               params: {
                 slug: project.slug

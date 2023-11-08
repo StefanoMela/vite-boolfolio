@@ -2,17 +2,13 @@
 import ContactForm from "../components/ContactForm.vue";
 
 export default {
-  data() {
-    return {
-      title: "Hello world",
-    };
-  },
 
   components: { ContactForm },
 };
 </script>
 
 <template>
+    <h1 class="my-3">Contattaci</h1>
         <ContactForm />
 </template>
 
